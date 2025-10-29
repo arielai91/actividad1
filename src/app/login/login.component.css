@@ -1,6 +1,139 @@
-.login-box{max-width:380px;margin:60px auto;padding:20px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.form{display:flex;flex-direction:column;gap:8px}
-input{padding:8px;border-radius:4px;border:1px solid #ccc}
-button{padding:8px;border-radius:4px;background:#3f51b5;color:#fff;border:none;cursor:pointer}
-.error{color:#b00020}
-.hint{font-size:13px;color:#555}
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+mat-card-header {
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+    color: white;
+    padding: 24px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+mat-card-title {
+    font-size: 28px !important;
+    margin: 0 !important;
+    font-weight: 500;
+}
+
+mat-card-content {
+    padding: 32px 24px !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.mat-mdc-form-field-icon-prefix {
+    color: #666;
+}
+
+button[type="submit"] {
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 16px;
+}
+
+button[type="submit"] mat-icon {
+    margin-right: 8px;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #d32f2f;
+    background: #fdecea;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.error-message mat-icon {
+    color: #d32f2f;
+}
+
+.demo-info {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.demo-info mat-icon {
+    color: #1976d2;
+}
+
+.demo-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.demo-info strong {
+    color: #1976d2;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 16px;
+    }
+
+    .login-card {
+        margin: 0;
+    }
+
+    mat-card-header {
+        padding: 20px;
+    }
+
+    mat-card-title {
+        font-size: 24px !important;
+    }
+
+    mat-card-content {
+        padding: 24px 16px !important;
+    }
+
+    button[type="submit"] {
+        height: 44px;
+    }
+}

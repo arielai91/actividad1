@@ -1,7 +1,38 @@
-<div class="dash">
-  <h2>Bienvenido {{ user }}</h2>
-  <div class="actions">
-    <button (click)="irClientes()">Gestión de Clientes</button>
-    <button (click)="logout()">Cerrar sesión</button>
+<div class="dashboard-container">
+  <mat-card class="welcome-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar>account_circle</mat-icon>
+      <mat-card-title>Bienvenido {{ user }}</mat-card-title>
+      <mat-card-subtitle>Panel de Administración</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <div class="cards-grid">
+    <!-- Tarjeta de Clientes -->
+    <mat-card class="menu-card" (click)="irClientes()">
+      <mat-card-content>
+        <mat-icon class="card-icon">group</mat-icon>
+        <h2>Gestión de Clientes</h2>
+        <p>Administra la información de tus clientes</p>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Tarjeta de Productos -->
+    <mat-card class="menu-card" (click)="irProductos()">
+      <mat-card-content>
+        <mat-icon class="card-icon">inventory</mat-icon>
+        <h2>Gestión de Productos</h2>
+        <p>Administra tu catálogo de productos</p>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Tarjeta de Cerrar Sesión -->
+    <mat-card class="menu-card logout-card" (click)="logout()">
+      <mat-card-content>
+        <mat-icon class="card-icon">exit_to_app</mat-icon>
+        <h2>Cerrar Sesión</h2>
+        <p>Finalizar sesión actual</p>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

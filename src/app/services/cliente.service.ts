@@ -9,17 +9,19 @@ export interface Cliente {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClienteService {
   private clientes: Cliente[] = [];
 
   constructor() {
     const raw = localStorage.getItem('clientes');
-    this.clientes = raw ? JSON.parse(raw) : [
-      { id: 1, nombre: 'Juan Perez', correo: 'juan@example.com' },
-      { id: 2, nombre: 'María López', correo: 'maria@example.com' }
-    ];
+    this.clientes = raw
+      ? JSON.parse(raw)
+      : [
+          { id: 1, nombre: 'Juan Perez', correo: 'juan@example.com' },
+          { id: 2, nombre: 'María López', correo: 'maria@example.com' },
+        ];
   }
 
   private guardar() {
@@ -38,14 +40,14 @@ export class ClienteService {
   }
 
   actualizar(cliente: Cliente) {
-    const idx = this.clientes.findIndex(c => c.id === cliente.id);
+    const idx = this.clientes.findIndex((c) => c.id === cliente.id);
     if (idx >= 0) this.clientes[idx] = cliente;
     this.guardar();
     return of(cliente).pipe(delay(400));
   }
 
   eliminar(id: number) {
-    this.clientes = this.clientes.filter(c => c.id !== id);
+    this.clientes = this.clientes.filter((c) => c.id !== id);
     this.guardar();
     return of(true).pipe(delay(300));
   }
